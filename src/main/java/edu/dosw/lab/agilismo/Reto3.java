@@ -1,14 +1,12 @@
 package edu.dosw.lab.agilismo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Reto3 {
     private static Scanner input = new Scanner(System.in);
 
     public static void run() {
-        List<Integer> listaTareasDefinidas = new ArrayList<>();
+        HashMap<String, Integer> tareasDefinidas = new HashMap<>();
         List<Integer> listaComplejidad;
 
         System.out.println("Escriba el numero de integrantes tiene su equipo: ");
@@ -28,16 +26,19 @@ public class Reto3 {
                 if (listaComplejidad.size()==cantidadIntegrantes) {
                     if (listaComplejidad.stream().distinct().count() == 1){
                         System.out.println("Se logro un consenso sobre la tarea "+nombreTarea+" se definio con una complejidad de "+ complejidad);
-                        listaTareasDefinidas.add(complejidad);
+                        tareasDefinidas.put(nombreTarea,complejidad);
                     }
                     else{
-                        j=0;
+                        j=1;
                         System.out.println("Votos divergentes  Discutan y vuelvan a votar");
                     }
-                    listaComplejidad.clear();
-                    input.nextLine();
                 }
             }
+        }
+
+        System.out.println("------------ Resumen Planning poker ------------");
+        for (Map.Entry<String, Integer> e : tareasDefinidas.entrySet()) {
+            System.out.println("La tarea "+ e.getValue()+ " se definio con una complejidad de "+ e.getKey()+"\n");
         }
     }
 }
