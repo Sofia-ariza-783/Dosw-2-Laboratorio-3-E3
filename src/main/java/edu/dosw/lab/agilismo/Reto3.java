@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Reto3 {
-    public static void main(String[] args) {
+    private static Scanner input = new Scanner(System.in);
+
+    public static void run() {
         List<Integer> listaTareasDefinidas = new ArrayList<>();
-        List<Integer> listaComplejidad ;
-        Scanner input = new Scanner(System.in);
+        List<Integer> listaComplejidad;
+
         System.out.println("Escriba el numero de integrantes tiene su equipo: ");
         Integer cantidadIntegrantes = input.nextInt();
         System.out.println("Escriba la cantidad de tareas que desea discutir: ");
@@ -29,9 +31,11 @@ public class Reto3 {
                         listaTareasDefinidas.add(complejidad);
                     }
                     else{
-                        j=1;
+                        j=0;
                         System.out.println("Votos divergentes  Discutan y vuelvan a votar");
                     }
+                    listaComplejidad.clear();
+                    input.nextLine();
                 }
             }
         }
