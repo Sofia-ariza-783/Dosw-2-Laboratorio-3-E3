@@ -29,16 +29,18 @@ public class Reto3 {
                         tareasDefinidas.put(nombreTarea,complejidad);
                     }
                     else{
-                        j=1;
+                        j=0;
                         System.out.println("Votos divergentes  Discutan y vuelvan a votar");
                     }
+                    listaComplejidad.clear();
                 }
+                input.nextLine();
             }
         }
 
-        System.out.println("------------ Resumen Planning poker ------------");
+        System.out.println("------------ Resumen Planning poker ------------\n");
         for (Map.Entry<String, Integer> e : tareasDefinidas.entrySet()) {
-            System.out.println("La tarea "+ e.getValue()+ " se definio con una complejidad de "+ e.getKey()+"\n");
+            System.out.println("La tarea "+ e.getKey()+ " se definio con una complejidad de "+ e.getValue()+"\n");
         }
     }
 }
