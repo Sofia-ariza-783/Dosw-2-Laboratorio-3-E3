@@ -29,3 +29,11 @@
 - Conocer el par de numeros que identifican cada banco
 - Conocer bancos registrados y existentes
 - Tener una base de datos disponible
+
+
+# Reto 2
+![img_1.png](docs/images/CasosUso.png)
+![img.png](docs/images/contexto.png)
+![img_2.png](docs/images/historiaUso.png)
+![img_3.png](docs/images/atributosCalidad.png)
+![img_4.png](docs/images/diagramaClases.png)
