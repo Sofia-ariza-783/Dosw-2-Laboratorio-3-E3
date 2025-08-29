@@ -23,9 +23,9 @@
 **Actores**
 - Usuario
 - Bankify
-- Owner
 - Bancos externos
 
 **Precondiciones**
 - Conocer el par de numeros que identifican cada banco
-- Conocer banco registrados
+- Conocer bancos registrados y existentes
+- Tener una base de datos disponible
