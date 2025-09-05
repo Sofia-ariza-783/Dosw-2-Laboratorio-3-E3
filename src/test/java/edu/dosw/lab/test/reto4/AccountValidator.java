@@ -8,6 +8,6 @@ public class AccountValidator {
         if (account.length() != 10) {
             return false;
         }
-        return Arrays.stream(AVAILABLE_BANKS).noneMatch(account::startsWith);
+        return Arrays.stream(AVAILABLE_BANKS).anyMatch(account::startsWith);
     }
 }

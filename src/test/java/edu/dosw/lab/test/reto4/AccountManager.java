@@ -40,8 +40,11 @@ public class AccountManager {
     }
 
     public void makeDeposit(String accountId,  double amount){
-        if(accounts.containsKey(accountId)){
+        if(accounts.containsKey(accountId) && amount>0){
             accounts.get(accountId).addMoney(amount);
+        }
+        else if (amount<0) {
+            System.out.println("Amount of money is negative");
         }
         else{
             System.out.println("Invalid account");
