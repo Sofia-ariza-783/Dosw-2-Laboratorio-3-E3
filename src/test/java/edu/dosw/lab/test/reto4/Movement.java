@@ -10,7 +10,7 @@ public class Movement {
     private double amount;
     public Movement(double amount) {
         this.date = LocalDateTime.now();
-        this.amount = 0;
+        this.amount = amount;
         this.id = UUID.randomUUID().toString();
     }
 
