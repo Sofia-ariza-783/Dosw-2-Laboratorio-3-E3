@@ -1,7 +1,7 @@
 package edu.dosw.lab.test.reto4;
 
 public class Bankify {
-    private AccountManager accountManager;
+    private AccountManager accountManager = new AccountManager();
     public Account createAccount(User user, String bankId){
         return accountManager.createAccount(user, bankId);
     }
@@ -11,6 +11,6 @@ public class Bankify {
     }
 
     public void makeDeposit(String accountId, double amount){
-
+        accountManager.makeDeposit(accountId, amount );
     }
 }

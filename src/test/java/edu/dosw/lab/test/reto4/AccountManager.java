@@ -10,7 +10,7 @@ public class AccountManager {
     }
     public Account createAccount(User user, String bankId){
         String id = "";
-        while (id.isBlank() || !accounts.containsKey(id)){
+        while (id.isEmpty() || accounts.containsKey(id)){
             id = bankId + new Random()
                 .ints(8, 0, 10)
                 .mapToObj(String::valueOf)
@@ -39,8 +39,13 @@ public class AccountManager {
         }
     }
 
-    public void makeDeposit(String accountId){
-
+    public void makeDeposit(String accountId,  double amount){
+        if(accounts.containsKey(accountId)){
+            accounts.get(accountId).addMoney(amount);
+        }
+        else{
+            System.out.println("Invalid account");
+        }
     }
 
     public Map<String,Account> getAccounts(){

@@ -15,6 +15,7 @@ public class TestBankify {
 
     @BeforeEach
     public void setUp() {
+        bankify = new Bankify();
         Random rand = new Random();
         validAccount = "01"+ rand.nextInt(10000000,99999999);
         user = new User();

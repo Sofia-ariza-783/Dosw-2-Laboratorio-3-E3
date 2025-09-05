@@ -13,10 +13,12 @@ public class Account {
         this.user = user;
         this.balance = 0;
         this.movements = new ArrayList<>();
+        this.user.addAccount(this);
     }
 
     public void addMoney(double money){
         this.balance += money;
+        movements.add(new Movement(money));
     }
 
     public double getBalance() {
