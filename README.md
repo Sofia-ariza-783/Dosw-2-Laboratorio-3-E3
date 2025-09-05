@@ -65,3 +65,29 @@
 # Segunda parte de discusion tareas junto a los resultados obtenidos de las tareas a realizar:
 
 ![img.png](docs/images/segundaParteReto3Ejecucion.png)
+
+
+# Reto 4
+
+Al ejecutar JaCoCo se obtuvo el siguiente resultado de cobertura:
+![img.png](docs/images/CoberturaInicial.png)
+- *Cobertura de instrucciones: 94%*
+- *Cobertura de ramas: 92%*
+
+La gran mayoría del código de reto4 se encuentra cubierto por pruebas unitarias. 
+Sin embargo, aún existen algunas líneas y al menos una condición no cubierta. 
+Las clases con menor cobertura parcial son:
+- Account
+- Bankify
+- AccountValidator
+
+En general, el nivel de cobertura es muy alto, lo que asegura confianza en la calidad del código y en el comportamiento de la lógica implementada.
+Por lo tanto, el requisito se cumple sin necesidad de añadir nuevos casos de prueba.
+
+En este laboratorio no fue necesario añadir casos de prueba extra, ya que la cobertura de JaCoCo alcanzó niveles superiores al umbral exigido, como
+primero se escribieron las pruebas unitarias que fallaban y luego se fue construyendo el código hasta que todas pasaron, lo que permitió obtener un software funcional 
+y confiable desde el inicio. Este enfoque aseguró una cobertura alta (94% de instrucciones y 92% de ramas según JaCoCo) sin necesidad de añadir 
+pruebas adicionales, demostrando la utilidad de TDD para garantizar calidad y confianza en la lógica implementada.
+Sin embargo, el análisis de cobertura sigue siendo útil porque permite identificar qué partes del código fueron ejercitadas por las pruebas 
+y qué ramas o escenarios alternativos no se ejecutaron. La métrica de cobertura es importante porque asegura que el código es validado de forma 
+amplia, genera confianza en la calidad del software y ayuda a prevenir errores en ejecución.
