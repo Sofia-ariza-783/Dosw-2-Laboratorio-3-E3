@@ -23,19 +23,19 @@ public class TestBankify {
 
     @Test
     public void testIsValidAccountShouldValidateAValidAccount(){
-        assertTrue(bankify.isValidAccount(validAccount));
+        assertTrue(AccountValidator.isValidAccount(validAccount));
     }
 
     @Test
     public void testIsValidAccountShouldNotValidateAnInvalidAccountWhenBankDoesNotExist(){
         String invalidAccount = "9910101010";
-        assertFalse(bankify.isValidAccount(invalidAccount));
+        assertFalse(AccountValidator.isValidAccount(invalidAccount));
     }
 
     @Test
     public void testIsValidAccountShouldNotValidateAnInvalidAccountWhenAccountLengthDoesNotMatch(){
         String invalidAccount = "011010";
-        assertFalse(bankify.isValidAccount(invalidAccount));
+        assertFalse(AccountValidator.isValidAccount(invalidAccount));
     }
 
     @Test
@@ -64,11 +64,26 @@ public class TestBankify {
     public void testDepositMoneyShouldNotDepositMoneyInAccountWhenAccountDoesNotExist() {
         String account = "InvalidAccount";
         bankify.depositMoney(account, 1000);
-
     }
 
+    @Test
+    public void testDepositMoneyShouldNotDepositMoneyInAccountWhenAmountIsNegative() {
+        String account = bankify.createAccount(user, bank);
+        bankify.depositMoney(account, -1000);
+        assertEquals(0, bankify.getAccountBalance(account));
+    }
 
+    @Test
+    public void testGetBalanceShouldReturnTheBalanceOfTheAccount() {
+        String account = bankify.createAccount(user, bank);
+        bankify.depositMoney(account, 1000);
+        assertEquals(1000, bankify.getAccountBalance(account.getId()));
+    }
 
-
+    @Test
+    public void testGetBalanceShouldReturnZeroWhenAccountIsBarelyCreated() {
+        String account = bankify.createAccount(user, bank);
+        assertEquals(0, bankify.getAccountBalance(account.getId()));
+    }
 
 }
