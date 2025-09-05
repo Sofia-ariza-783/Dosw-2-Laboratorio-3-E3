@@ -6,7 +6,7 @@
 - Sofia Nicolle Ariza Goenaga
 
 ## Reto 1
-** Desarrollo: **
+**Desarrollo:**
 
 **Reglas de Negocio:**
 - El numero de cuenta debe tener 10 digitos
@@ -91,3 +91,43 @@ pruebas adicionales, demostrando la utilidad de TDD para garantizar calidad y co
 Sin embargo, el análisis de cobertura sigue siendo útil porque permite identificar qué partes del código fueron ejercitadas por las pruebas 
 y qué ramas o escenarios alternativos no se ejecutaron. La métrica de cobertura es importante porque asegura que el código es validado de forma 
 amplia, genera confianza en la calidad del software y ayuda a prevenir errores en ejecución.
+
+# Reto 5
+El proyecto fue construido usando Maven, generando los reportes de cobertura de código mediante Jacoco. El reporte se encuentra en:
+![img.png](docs/images/sonarQuality.png)
+
+Se integró el proyecto con SonarQube para análisis estático de código. El comando utilizado fue:
+(mvn "sonar:sonar" "-Dsonar.host.url=http://localhost:9000" "-Dsonar.login=squ_59dc456294723ca87b69d44c29ea7cee87411f18")
+
+El análisis arrojó los siguientes resultados:
+
+- Quality Gate: Passed ✅
+- Cobertura: 56.6%
+- Duplicaciones: 0%
+- Security Hotspots: 2
+- Reliability: 2 issues
+- Maintainability: 45 issues
+
+El sonar realiza la cobertura con base en todo el proyecto, el proceso de TTD fue realizado para
+el reto 4, al no haber pruebas generales para los otros retos el porcentaje de cobertura baja.
+
+*Reflexion:*
+
+**Marlio**
+
+Hacer pruebas al software no es solo para cumplir con el proceso, es lo que realmente te permite saber si lo que desarrollaste 
+funciona bien y no va a fallar cuando lo use alguien más. Además, te ayuda a detectar desde temprano problemas de rendimiento,
+seguridad o mantenimiento que, si se dejan pasar, pueden volverse un dolor de cabeza más adelante.
+
+**Daniel**
+
+Realizar pruebas es una forma de cuidar tu trabajo. Te ayuda a entender cómo se comporta el sistema en distintos escenarios, 
+anticiparte a posibles fallos y mejorar la calidad del producto. Al final, un software bien probado habla bien del 
+desarrollador que lo construyó.
+
+**Sofia**
+
+Al escribir el código y luego nosotros mismos crear las pruebas, podemos caer en el error de crear los test para validar 
+nuestro código y no para realmente verificar las reglas de negocio, lo que resulta en pruebas ineficaces, que no cumplen 
+con su propósito. Al pensar primero en las pruebas, establecemos unos parámetros que se tienen que cumplir antes de empezar 
+a codificar, así podremos diseñar los programas con el objetivo del programa en mente.
