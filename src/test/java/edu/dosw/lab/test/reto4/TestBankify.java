@@ -20,6 +20,8 @@ public class TestBankify {
         validAccount = "01"+ rand.nextInt(10000000,99999999);
         user = new User();
         bank = "01";
+        bankify = new Bankify();
+
     }
 
     @Test
@@ -85,6 +87,12 @@ public class TestBankify {
     public void testGetBalanceShouldReturnZeroWhenAccountIsBarelyCreated() {
         Account account = bankify.createAccount(user, bank);
         assertEquals(0, bankify.checkBalance(account.getId()));
+    }
+
+    @Test
+    public void testGetBalanceShouldReturnZeroWhenAccountDoesNotExist() {
+        String account = "InvalidAccount";
+        assertEquals(0, bankify.checkBalance(account));
     }
 
 }

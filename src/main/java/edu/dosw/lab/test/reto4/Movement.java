@@ -1,6 +1,5 @@
 package edu.dosw.lab.test.reto4;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 

@@ -17,14 +17,6 @@ public class User {
         accounts = new HashMap<>();
     }
 
-    public void depositMoney(double amount, String account) {
-
-    }
-
-    public void checkBalance(String account) {
-
-    }
-
     public String getId() {
         return id;
     }

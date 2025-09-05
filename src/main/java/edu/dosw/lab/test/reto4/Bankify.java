@@ -1,7 +1,7 @@
 package edu.dosw.lab.test.reto4;
 
 public class Bankify {
-    private AccountManager accountManager = new AccountManager();
+    private final AccountManager accountManager = new AccountManager();
     public Account createAccount(User user, String bankId){
         return accountManager.createAccount(user, bankId);
     }
