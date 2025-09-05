@@ -10,15 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestBankify {
     private String validAccount;
     private Bankify bankify;
-    private int user;
+    private User user;
     private String bank;
 
     @BeforeEach
     public void setUp() {
         Random rand = new Random();
         validAccount = "01"+ rand.nextInt(10000000,99999999);
-        user = 100100654;
-        bank = "Bancolombia";
+        user = new User();
+        bank = "01";
     }
 
     @Test
@@ -40,50 +40,50 @@ public class TestBankify {
 
     @Test
     public void testCreateAccountShouldGenerateAValidAccountNumberAccordingToTheBank(){
-        String account = bankify.createAccount(user,bank);
+        Account account = bankify.createAccount(user,bank);
 
-        assertTrue(bankify.isValidAccount(account));
+        assertTrue(AccountValidator.isValidAccount(account.getId()));
     }
 
     @Test
     public void testCreateAccountShouldNotGenerateAnyAccountWhenBankDoesNotExist(){
         String bank = "InvalidBank";
-        String account = bankify.createAccount(user,bank);
+        Account account = bankify.createAccount(user,bank);
         assertTrue(account == null);
     }
 
     @Test
     public void testDepositMoneyShouldDepositMoneyInAccount(){
-        String account = bankify.CreateAccount(user, bank);
-        bankify.depositMoney(account, 1000);
+        Account account = bankify.createAccount(user, bank);
+        bankify.makeDeposit(account.getId(), 1000);
 
-        assertEquals(1000, bankify.getAccountBalance(account));
+        assertEquals(1000, bankify.checkBalance(account.getId()));
     }
 
     @Test
     public void testDepositMoneyShouldNotDepositMoneyInAccountWhenAccountDoesNotExist() {
         String account = "InvalidAccount";
-        bankify.depositMoney(account, 1000);
+        bankify.makeDeposit(account, 1000);
     }
 
     @Test
     public void testDepositMoneyShouldNotDepositMoneyInAccountWhenAmountIsNegative() {
-        String account = bankify.createAccount(user, bank);
-        bankify.depositMoney(account, -1000);
-        assertEquals(0, bankify.getAccountBalance(account));
+        Account account = bankify.createAccount(user, bank);
+        bankify.makeDeposit(account.getId(), -1000);
+        assertEquals(0, bankify.checkBalance(account.getId()));
     }
 
     @Test
     public void testGetBalanceShouldReturnTheBalanceOfTheAccount() {
-        String account = bankify.createAccount(user, bank);
-        bankify.depositMoney(account, 1000);
-        assertEquals(1000, bankify.getAccountBalance(account.getId()));
+        Account account = bankify.createAccount(user, bank);
+        bankify.makeDeposit(account.getId(), 1000);
+        assertEquals(1000, bankify.checkBalance(account.getId()));
     }
 
     @Test
     public void testGetBalanceShouldReturnZeroWhenAccountIsBarelyCreated() {
-        String account = bankify.createAccount(user, bank);
-        assertEquals(0, bankify.getAccountBalance(account.getId()));
+        Account account = bankify.createAccount(user, bank);
+        assertEquals(0, bankify.checkBalance(account.getId()));
     }
 
 }

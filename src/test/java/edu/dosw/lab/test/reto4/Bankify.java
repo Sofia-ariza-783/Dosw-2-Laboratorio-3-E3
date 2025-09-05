@@ -1,11 +1,16 @@
 package edu.dosw.lab.test.reto4;
 
 public class Bankify {
-    private Account createAccount(){
-        return new Account();
+    private AccountManager accountManager;
+    public Account createAccount(User user, String bankId){
+        return accountManager.createAccount(user, bankId);
     }
 
-    private double checkBalance(String accountId){
+    public double checkBalance(String accountId){
+        return  accountManager.getBalance(accountId);
+    }
+
+    public void makeDeposit(String accountId, double amount){
 
     }
 }
